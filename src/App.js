@@ -4,9 +4,10 @@ import MainHeader from "./components/MainHeader";
 import NavBar from "./components/NavBar";
 import { Router } from "@reach/router";
 import Home from "./components/Home";
-import ArticleList from "./components/ArticleList";
 import AllTopics from "./components/AllTopics";
 import AllAuthors from "./components/AllAuthors";
+import AllArticles from "./components/AllArticles";
+import SingleArticle from "./components/SingleArticle";
 
 class App extends Component {
   state = {
@@ -20,9 +21,10 @@ class App extends Component {
         <NavBar user={user} />
         <Router>
           <Home path="/" />
-          <ArticleList path="/articles" />
+          <AllArticles path="/articles" />
           <AllTopics path="/topics" />
           <AllAuthors path="/authors" />
+          <SingleArticle path="/articles/:article_id" />
         </Router>
       </div>
     );

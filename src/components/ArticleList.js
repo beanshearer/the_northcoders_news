@@ -1,9 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "@reach/router";
 
-class ArticleList extends Component {
-  render() {
-    return <div>ArticleList</div>;
-  }
-}
+const ArticleList = ({ articles }) => {
+  return (
+    <div>
+      <ul>
+        {articles.map(({ article_id, title }) => {
+          return (
+            <Link key={article_id} to={`/articles/${article_id}`}>
+              <li>{title}</li>
+            </Link>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
 export default ArticleList;
