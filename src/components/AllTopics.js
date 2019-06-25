@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import getRequests from "./Api";
+import GetRequests from "./Api";
 
 class AllTopics extends Component {
   state = {
@@ -26,7 +26,7 @@ class AllTopics extends Component {
     );
   }
   componentDidMount() {
-    getRequests(`topics`).then(topics => {
+    GetRequests(`topics`).then(topics => {
       this.setState({ topics });
     });
   }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getRequests from "./Api";
+import GetRequests from "./Api";
 
 class SingleArticle extends Component {
   state = {
@@ -25,13 +25,13 @@ class SingleArticle extends Component {
   }
   componentDidMount() {
     const { uri } = this.props;
-    getRequests(`article`, uri)
+    GetRequests(`article`, uri)
       .then(article => {
         this.setState({ article });
         return article.author;
       })
       .then(author => {
-        return getRequests(`user`, `users/${author}`);
+        return GetRequests(`user`, `users/${author}`);
       })
       .then(user => {
         this.setState({ user });

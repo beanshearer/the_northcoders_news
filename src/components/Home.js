@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getRequests from "./Api";
+import GetRequests from "./Api";
 import ArticleList from "./ArticleList";
 
 class Home extends Component {
@@ -17,7 +17,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    getRequests(`articles`).then(articles => this.setState({ articles }));
+    GetRequests(`articles`).then(articles => this.setState({ articles }));
   }
 }
 

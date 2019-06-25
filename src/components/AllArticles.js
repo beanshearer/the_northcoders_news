@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArticleList from "./ArticleList";
-import getRequests from "./Api";
+import GetRequests from "./Api";
 
 class AllArticles extends Component {
   state = {
@@ -17,7 +17,9 @@ class AllArticles extends Component {
   }
 
   componentDidMount() {
-    getRequests(`articles`).then(articles => this.setState({ articles }));
+    GetRequests(`articles`, `articles?sort_by=votes`).then(articles =>
+      this.setState({ articles })
+    );
   }
 }
 
