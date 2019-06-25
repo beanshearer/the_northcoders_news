@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Link } from "@reach/router";
+import getRequests from "./Api";
 
 class AllTopics extends Component {
   state = {
@@ -8,7 +8,6 @@ class AllTopics extends Component {
   };
   render() {
     const { topics } = this.state;
-    console.log(topics);
     return (
       <div>
         <h2>Topics</h2>
@@ -27,12 +26,9 @@ class AllTopics extends Component {
     );
   }
   componentDidMount() {
-    return axios
-      .get(`https://bens-northcoders-news.herokuapp.com/api/topics`)
-      .then(response => {
-        const { topics } = response.data;
-        this.setState({ topics });
-      });
+    getRequests(`topics`).then(topics => {
+      this.setState({ topics });
+    });
   }
 }
 
