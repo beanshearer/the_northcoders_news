@@ -8,6 +8,7 @@ import AllTopics from "./components/AllTopics";
 import AllAuthors from "./components/AllAuthors";
 import AllArticles from "./components/AllArticles";
 import SingleArticle from "./components/SingleArticle";
+import SingleTopic from "./components/SingleTopic";
 
 class App extends Component {
   state = {
@@ -25,6 +26,7 @@ class App extends Component {
           <AllTopics path="/topics" />
           <AllAuthors path="/authors" />
           <SingleArticle path="/articles/:article_id" />
+          <SingleTopic path="/topics/:topic" />
         </Router>
       </div>
     );
