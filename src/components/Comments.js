@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import GetRequests from "./GetRequests";
 import PostRequests from "./PostRequests";
+import Votes from "./Votes";
 
 class Comments extends Component {
   state = {
@@ -25,7 +26,24 @@ class Comments extends Component {
           {comments.map(({ comment_id, body, votes }) => {
             return (
               <li key={comment_id}>
-                {body} <button>Votes: {votes} </button>
+                {body}{" "}
+                <button
+                  key={comment_id}
+                  onClick={() => {
+                    this.setState(state => {
+                      return Votes(
+                        state.comments,
+                        "comments",
+                        comment_id,
+                        "comment_id",
+                        state[comment_id]
+                      );
+                    });
+                  }}
+                >
+                  {" "}
+                  Votes: {votes}{" "}
+                </button>
               </li>
             );
           })}
