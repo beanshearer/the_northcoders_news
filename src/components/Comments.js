@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GetRequests from "./GetRequests";
-import PostRequests from "./PostRequests";
+import PostOrPatchRequests from "./PostOrPatchRequests";
 import Votes from "./Votes";
 
 class Comments extends Component {
@@ -51,7 +51,7 @@ class Comments extends Component {
         <form
           onSubmit={event => {
             event.preventDefault();
-            PostRequests(`comment`, `${uri}/comments`, {
+            PostOrPatchRequests("post", `comment`, `${uri}/comments`, {
               username,
               body: comment
             }).then(({ article_id, ...newComment }) => {
