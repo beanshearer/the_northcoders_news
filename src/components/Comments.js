@@ -17,9 +17,25 @@ class Comments extends Component {
     });
   };
 
-  render() {
-    const { comments, comment, username } = this.state;
+  handleSubmit = event => {
+    const { comment, username } = this.state;
     const { uri } = this.props;
+    event.preventDefault();
+    PostOrPatchRequests("post", `comment`, `${uri}/comments`, {
+      username,
+      body: comment
+    }).then(({ article_id, ...newComment }) => {
+      this.setState(state => {
+        return {
+          comments: [...state.comments, newComment],
+          comment: ""
+        };
+      });
+    });
+  };
+
+  render() {
+    const { comments } = this.state;
     return (
       <section>
         <ul>
@@ -48,22 +64,7 @@ class Comments extends Component {
             );
           })}
         </ul>
-        <form
-          onSubmit={event => {
-            event.preventDefault();
-            PostOrPatchRequests("post", `comment`, `${uri}/comments`, {
-              username,
-              body: comment
-            }).then(({ article_id, ...newComment }) => {
-              this.setState(state => {
-                return {
-                  comments: [...state.comments, newComment],
-                  comment: ""
-                };
-              });
-            });
-          }}
-        >
+        <form onSubmit={this.handleSubmit}>
           <label>
             Comment:
             <input

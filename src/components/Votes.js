@@ -1,4 +1,6 @@
-const Votes = (arr, typeName, id, name_id, bool) => {
+import PostOrPatchRequests from "./PostOrPatchRequests";
+
+const Votes = (arr, typeName, id, name_id, bool, key = typeName) => {
   let newArr = [...arr];
   const index = newArr.findIndex(comment => comment[name_id] === id);
   let { votes, ...restOfInfo } = newArr[index];
@@ -9,6 +11,9 @@ const Votes = (arr, typeName, id, name_id, bool) => {
     change = -1;
     truth = false;
   }
+  PostOrPatchRequests("patch", key, `${typeName}/${id}`, {
+    inc_votes: change
+  });
   const incrementedVote = {
     ...restOfInfo,
     votes: votes + change

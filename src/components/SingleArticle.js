@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import GetRequests from "./GetRequests";
 import Comments from "./Comments";
+import Votes from "./Votes";
 
 class SingleArticle extends Component {
   state = {
@@ -10,6 +11,7 @@ class SingleArticle extends Component {
 
   render() {
     const { article, user } = this.state;
+    console.log(article);
     const { uri } = this.props;
     return (
       <div>
@@ -19,10 +21,27 @@ class SingleArticle extends Component {
         <div>Author: {user && user.name}</div>
         <img src={user.avatar_url} alt={`${user.name}`} />
         <div>{article && article.body}</div>
-        <div>
-          Comments: {article && article.comment_count}, Votes:
+        <button
+          onClick={() => {
+            this.setState(state => {
+              const id = state.article.article_id;
+              const { articles, ...bool } = Votes(
+                [state.article],
+                "articles",
+                id,
+                "article_id",
+                state[id],
+                "article"
+              );
+              console.log(bool, id, state[id]);
+              return { article: articles[0], ...bool };
+            });
+          }}
+        >
+          Votes:
           {article && article.votes}
-        </div>
+        </button>
+
         <Comments uri={uri} />
       </div>
     );
@@ -42,9 +61,5 @@ class SingleArticle extends Component {
       });
   }
 }
-
-// requesting article
-// then request user info
-// store all of it
 
 export default SingleArticle;
