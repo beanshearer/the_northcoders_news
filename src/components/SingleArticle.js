@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "./Api";
+import GetRequests from "./GetRequests";
 import Comments from "./Comments";
 
 class SingleArticle extends Component {

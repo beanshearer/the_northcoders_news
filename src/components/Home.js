@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "./Api";
+import GetRequests from "./GetRequests";
 import ArticleList from "./ArticleList";
 
 class Home extends Component {

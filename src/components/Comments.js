@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import GetRequests from "./Api";
+import GetRequests from "./GetRequests";
+import PostRequests from "./PostRequests";
 
 class Comments extends Component {
   state = {
     comments: [],
-    comment: ""
+    comment: "",
+    username: "jessjelly"
   };
 
   handleChange = event => {
@@ -15,18 +17,33 @@ class Comments extends Component {
   };
 
   render() {
-    const { comments } = this.state;
+    const { comments, comment, username } = this.state;
+    const { uri } = this.props;
     return (
       <section>
         <ul>
-          {comments.map(({ comment_id, body }) => {
-            return <li key={comment_id}>{body}</li>;
+          {comments.map(({ comment_id, body, votes }) => {
+            return (
+              <li key={comment_id}>
+                {body} <button>Votes: {votes} </button>
+              </li>
+            );
           })}
         </ul>
         <form
           onSubmit={event => {
             event.preventDefault();
-            console.log(this.state.comment);
+            PostRequests(`comment`, `${uri}/comments`, {
+              username,
+              body: comment
+            }).then(({ article_id, ...newComment }) => {
+              this.setState(state => {
+                return {
+                  comments: [...state.comments, newComment],
+                  comment: ""
+                };
+              });
+            });
           }}
         >
           <label>
@@ -38,7 +55,7 @@ class Comments extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button>Search!</button>
+          <button>Post</button>
         </form>
       </section>
     );
@@ -46,7 +63,7 @@ class Comments extends Component {
 
   componentDidMount() {
     const { uri } = this.props;
-    GetRequests(`comments`, `${uri}/comments/`).then(comments => {
+    GetRequests(`comments`, `${uri}/comments`).then(comments => {
       this.setState({ comments });
     });
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArticleList from "./ArticleList";
-import GetRequests from "./Api";
+import GetRequests from "./GetRequests";
 
 class AllArticles extends Component {
   state = {
