@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import GetRequests from "./GetRequests";
-import PostOrPatchRequests from "./PostOrPatchRequests";
-import Votes from "./Votes";
+import GetRequests from "../api/Get";
+import PostOrPatchRequests from "../api/PostOrPatch";
+import Delete from "../api/Delete";
+import Liker from "./Liker";
 
 class Comments extends Component {
   state = {
@@ -34,32 +35,35 @@ class Comments extends Component {
     });
   };
 
+  handleDelete = comment_id => {
+    Delete(`comments/${comment_id}`);
+    this.setState(state => {
+      const comments = state.comments.filter(comment => {
+        return comment.comment_id !== comment_id;
+      });
+      return { comments };
+    });
+  };
+
   render() {
     const { comments } = this.state;
     return (
       <section>
         <ul>
-          {comments.map(({ comment_id, body, votes }) => {
+          {comments.map(({ comment_id, body, votes, author }) => {
             return (
               <li key={comment_id}>
-                {body}{" "}
-                <button
-                  key={comment_id}
-                  onClick={() => {
-                    this.setState(state => {
-                      return Votes(
-                        state.comments,
-                        "comments",
-                        comment_id,
-                        "comment_id",
-                        state[comment_id]
-                      );
-                    });
-                  }}
-                >
-                  {" "}
-                  Votes: {votes}{" "}
-                </button>
+                {author + " " + body}
+                <Liker comment_id={comment_id} likes={votes} />
+                {author === this.state.username && (
+                  <button
+                    onClick={() => {
+                      this.handleDelete(comment_id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                )}
               </li>
             );
           })}

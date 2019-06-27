@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import GetRequests from "./GetRequests";
+import GetRequests from "../api/Get";
 import Comments from "./Comments";
-import Votes from "./Votes";
+import Liker from "./Liker";
 
 class SingleArticle extends Component {
   state = {
@@ -21,31 +21,12 @@ class SingleArticle extends Component {
         <div>Author: {user && user.name}</div>
         <img src={user.avatar_url} alt={`${user.name}`} />
         <div>{article && article.body}</div>
-        <button
-          onClick={() => {
-            this.setState(state => {
-              const id = state.article.article_id;
-              const { articles, ...bool } = Votes(
-                [state.article],
-                "articles",
-                id,
-                "article_id",
-                state[id],
-                "article"
-              );
-              console.log(bool, id, state[id]);
-              return { article: articles[0], ...bool };
-            });
-          }}
-        >
-          Votes:
-          {article && article.votes}
-        </button>
-
+        <Liker article_id={article.article_id} likes={article.votes} />
         <Comments uri={uri} />
       </div>
     );
   }
+
   componentDidMount() {
     const { uri } = this.props;
     GetRequests(`article`, uri)

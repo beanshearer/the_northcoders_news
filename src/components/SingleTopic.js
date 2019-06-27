@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArticleList from "./ArticleList";
-import GetRequests from "./GetRequests";
+import GetRequests from "../api/Get";
 
 class SingleTopic extends Component {
   state = {
@@ -14,7 +14,6 @@ class SingleTopic extends Component {
     const capitalisedTitle =
       lowercaseTitle.substring(0, 1).toUpperCase() +
       lowercaseTitle.substring(1);
-
     return (
       <div>
         <h2>{capitalisedTitle}</h2>

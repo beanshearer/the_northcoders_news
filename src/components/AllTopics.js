@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import GetRequests from "./GetRequests";
+import GetRequests from "../api/Get";
 
 class AllTopics extends Component {
   state = {
