@@ -64,6 +64,7 @@ class AllArticles extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log("mee");
     const { sort_submit, order_submit } = this.state;
     if (
       prevState.sort_submit !== sort_submit ||

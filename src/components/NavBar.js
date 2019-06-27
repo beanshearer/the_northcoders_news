@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "@reach/router";
 
 const NavBar = ({ user }) => {
-  console.log(user);
   return (
     <div>
       <Link to="/">
