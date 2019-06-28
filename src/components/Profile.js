@@ -6,8 +6,6 @@ class Profile extends Component {
     user: {}
   };
   render() {
-    console.log("rendering");
-    const { author } = this.props;
     const { user } = this.state;
     return (
       <div>

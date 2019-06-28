@@ -3,21 +3,29 @@ import { Link } from "@reach/router";
 
 const NavBar = ({ user }) => {
   return (
-    <div>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
-      <Link to="/articles">
-        <button>All Articles</button>
-      </Link>
-      <Link to="/topics">
-        <button>Topics</button>
-      </Link>
-      <Link to="/authors">
-        <button>Authors</button>
-      </Link>
+    <nav class="nav-bar">
+      <div>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/articles">
+          <button>All Articles</button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/topics">
+          <button>Topics</button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/authors">
+          <button>Authors</button>
+        </Link>
+      </div>
       <div>User: {user}</div>
-    </div>
+    </nav>
   );
 };
 

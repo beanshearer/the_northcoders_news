@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GetRequests from "../api/Get";
-import ArticleList from "./ArticleList";
+import HomeArticles from "./HomeArticles";
 
 class Home extends Component {
   state = {
@@ -11,7 +11,7 @@ class Home extends Component {
     return (
       <div>
         <h2>Home</h2>
-        <ArticleList articles={articles} />
+        <HomeArticles articles={articles} />
       </div>
     );
   }

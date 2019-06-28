@@ -1,3 +1,19 @@
 .App {
   text-align: center;
 }
+
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.flex-box {
+  width: 600px;
+}

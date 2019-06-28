@@ -3,36 +3,36 @@ import { Link } from "@reach/router";
 
 const ArticleList = ({ articles }) => {
   return (
-    <table>
-      <tbody>
-        <tr>
-          <th>Author</th>
-          <th>Title</th>
-          <th>Date</th>
-          <th>Topic</th>
-          <th>Likes</th>
-        </tr>
-        {articles.map(
-          ({ article_id, author, title, created_at, topic, votes }) => {
-            return (
-              <tr key={article_id}>
-                <td>
-                  <Link to={`/articles/${article_id}`}>{author}</Link>
-                </td>
-                <td>
-                  <Link key={article_id} to={`/articles/${article_id}`}>
-                    {title}
-                  </Link>
-                </td>
-                <td>{created_at.substring(0, 10)}</td>
-                <td>{topic}</td>
-                <td>{votes}</td>
-              </tr>
-            );
-          }
-        )}
-      </tbody>
-    </table>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm">Author</div>
+        <div class="col-sm">Title</div>
+        <div class="col-sm">Date</div>
+        <div class="col-sm">Topic</div>
+        <div class="col-sm">Likes</div>
+      </div>
+      {articles.map(
+        ({ article_id, author, title, created_at, topic, votes }) => {
+          return (
+            <div class="row" key={article_id}>
+              <div class="col-sm">
+                <Link to={`/articles/${article_id}`}>{author}</Link>
+              </div>
+              <div class="col-sm">
+                <Link key={article_id} to={`/articles/${article_id}`}>
+                  {title}
+                </Link>
+              </div>
+              <div class="col-sm">
+                {created_at.substring(0, 10).replace(/-/g, "/")}
+              </div>
+              <div class="col-sm">{topic}</div>
+              <div class="col-sm">{votes}</div>
+            </div>
+          );
+        }
+      )}
+    </div>
   );
 };
 

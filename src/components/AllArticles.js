@@ -30,7 +30,7 @@ class AllArticles extends Component {
   render() {
     const { articles } = this.state;
     return (
-      <div>
+      <div className="container">
         <h2>All Articles</h2>
         Sort By:
         <form onSubmit={this.handleSubmit}>
@@ -41,6 +41,7 @@ class AllArticles extends Component {
               <option value="author">Author</option>
               <option value="votes">Votes</option>
               <option value="title">Title</option>
+              <option value="comment_count">Comment Count</option>
             </select>
           </label>
           <label>
@@ -64,7 +65,6 @@ class AllArticles extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("mee");
     const { sort_submit, order_submit } = this.state;
     if (
       prevState.sort_submit !== sort_submit ||
