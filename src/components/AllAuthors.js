@@ -15,7 +15,7 @@ class AllAuthors extends Component {
         <h2>Authors</h2>
         {users.map(user => {
           return (
-            <div>
+            <div className="authors-card flex-container">
               <Profile author={user.username} />
               <label>
                 Articles:

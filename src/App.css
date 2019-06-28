@@ -1,5 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+
 .App {
   text-align: center;
+  background-color: rgba(250, 145, 142, 1);
+  font-family: "Source Sans Pro", sans-serif;
+}
+body {
+  background-color: rgba(250, 145, 142, 1);
+  margin: 0;
+  padding: 0;
+}
+
+.article-list {
+  margin: 20px;
 }
 
 .flex-container {
@@ -12,8 +25,92 @@
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  background-color: rgba(85, 76, 118, 1);
 }
 
-.flex-box {
-  width: 600px;
+.home-article-boxes {
+  width: 550px;
+  padding: 25px;
+  background-color: #ef7575;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.nav-buttons {
+  background-color: transparent;
+  border: none;
+  color: white;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 40% 14% 20% 6%;
+}
+.grid-container:nth-child(even) {
+  background: lightblue;
+}
+
+.select-dropdown {
+  background-color: antiquewhite;
+}
+
+.c1 {
+  height: 60px;
+}
+.c2 {
+  height: 60px;
+}
+.c3 {
+  height: 60px;
+}
+.c4 {
+  height: 60px;
+}
+.c5 {
+  height: 60px;
+}
+
+.profile-picture {
+  width: 150px;
+}
+
+.author-and-title {
+  margin: 30px;
+  display: flex;
+}
+
+.article-title {
+  text-align: center;
+  width: calc(100% - 275px);
+}
+
+.article-body {
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.comments {
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+.commentCard {
+  background-color: aliceblue;
+  margin: 5px;
+}
+
+.authors-card {
+  background: lightblue;
+  margin: 20px;
+  padding: 10px;
+}
+
+.topicCard {
+  background-color: aliceblue;
+  margin: 5px;
 }

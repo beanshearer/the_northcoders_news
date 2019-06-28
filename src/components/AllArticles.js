@@ -35,18 +35,25 @@ class AllArticles extends Component {
         Sort By:
         <form onSubmit={this.handleSubmit}>
           <label>
-            <select value={this.state.value} onChange={this.handleChange}>
+            <select
+              className="select-dropdown"
+              value={this.state.value}
+              onChange={this.handleChange}
+            >
               <option value="created_at">Date</option>
               <option value="topic">Topic</option>
               <option value="author">Author</option>
               <option value="votes">Votes</option>
               <option value="title">Title</option>
-              <option value="comment_count">Comment Count</option>
             </select>
           </label>
           <label>
             Order:
-            <select value={this.state.order} onChange={this.handleOrderChange}>
+            <select
+              className="select-dropdown"
+              value={this.state.order}
+              onChange={this.handleOrderChange}
+            >
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
             </select>

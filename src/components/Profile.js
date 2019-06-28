@@ -8,9 +8,13 @@ class Profile extends Component {
   render() {
     const { user } = this.state;
     return (
-      <div>
+      <div className="profile">
+        <img
+          className="profile-picture"
+          src={user.avatar_url}
+          alt={`${user.name}`}
+        />
         <div>Author: {user && user.name}</div>
-        <img src={user.avatar_url} alt={`${user.name}`} />
       </div>
     );
   }

@@ -13,7 +13,7 @@ class AllTopics extends Component {
         <h2>Topics</h2>
         {topics.map(({ slug, description }) => {
           return (
-            <Link key={slug} to={`/topics/${slug}`}>
+            <Link className="topicCard" key={slug} to={`/topics/${slug}`}>
               <li>
                 Topic: {slug}
                 <br />

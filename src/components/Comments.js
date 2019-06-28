@@ -48,11 +48,11 @@ class Comments extends Component {
   render() {
     const { comments } = this.state;
     return (
-      <section>
+      <section className="comments">
         <ul>
           {comments.map(({ comment_id, body, votes, author }) => {
             return (
-              <li key={comment_id}>
+              <li className="commentCard" key={comment_id}>
                 {author + " " + body}
                 <Liker comment_id={comment_id} likes={votes} />
                 {author === this.state.username && (

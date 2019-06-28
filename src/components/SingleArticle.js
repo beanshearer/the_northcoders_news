@@ -15,11 +15,13 @@ class SingleArticle extends Component {
     const { uri } = this.props;
     return (
       <div>
-        <header>
-          <h2>{article && article.title}</h2>
-        </header>
-        <Profile author={article.author} />
-        <div>{article && article.body}</div>
+        <div className="author-and-title">
+          <Profile author={article.author} />
+          <header className="article-title">
+            <h2>{article && article.title}</h2>
+          </header>
+        </div>
+        <div className="article-body">{article && article.body}</div>
         <Liker article_id={article.article_id} likes={article.votes} />
         <Comments uri={uri} />
       </div>

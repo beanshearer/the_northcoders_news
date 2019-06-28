@@ -6,25 +6,25 @@ const NavBar = ({ user }) => {
     <nav class="nav-bar">
       <div>
         <Link to="/">
-          <button>Home</button>
+          <button className="nav-buttons">Home</button>
         </Link>
       </div>
       <div>
         <Link to="/articles">
-          <button>All Articles</button>
+          <button className="nav-buttons">All Articles</button>
         </Link>
       </div>
       <div>
         <Link to="/topics">
-          <button>Topics</button>
+          <button className="nav-buttons">Topics</button>
         </Link>
       </div>
       <div>
         <Link to="/authors">
-          <button>Authors</button>
+          <button className="nav-buttons">Authors</button>
         </Link>
       </div>
-      <div>User: {user}</div>
+      <div>Logged in as: {user}</div>
     </nav>
   );
 };
