@@ -12,10 +12,8 @@ class AuthorsArticles extends Component {
       <div>
         {articles.map(({ title, article_id }) => {
           return (
-            <div>
-              <Link key={article_id} to={`/articles/${article_id}`}>
-                {title}
-              </Link>
+            <div key={article_id}>
+              <Link to={`/articles/${article_id}`}>{title}</Link>
             </div>
           );
         })}

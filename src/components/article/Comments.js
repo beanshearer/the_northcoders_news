@@ -51,10 +51,10 @@ class Comments extends Component {
     const { comments } = this.state;
     return (
       <section className="comments">
-        <ul>
+        <div>
           {comments.map(({ comment_id, body, votes, author }) => {
             return (
-              <li className="commentCard" key={comment_id}>
+              <div className="commentCard" key={comment_id}>
                 {author + " " + body}
                 <Liker comment_id={comment_id} likes={votes} />
                 {author === this.state.username && (
@@ -66,10 +66,10 @@ class Comments extends Component {
                     Delete
                   </button>
                 )}
-              </li>
+              </div>
             );
           })}
-        </ul>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>
             Comment:
