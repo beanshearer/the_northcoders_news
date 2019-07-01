@@ -1,34 +1,24 @@
 import React, { Component } from "react";
-import ArticleList from "../articles/ArticleList";
-import GetRequests from "../../api/Get";
+import ArticleList from "../ArticleList";
+import ErrorPage from "../../ErrorPage";
 
 class SingleTopic extends Component {
   state = {
-    articles: []
+    err: null
   };
-
   render() {
-    const { articles } = this.state;
+    const { err } = this.state;
+    if (err) return <ErrorPage err={err} />;
     const { uri } = this.props;
     const splitUri = uri.split("/");
-    const lowercaseTitle = splitUri[splitUri.length - 1];
+    const topic = splitUri[splitUri.length - 1];
     const capitalisedTitle =
-      lowercaseTitle.substring(0, 1).toUpperCase() +
-      lowercaseTitle.substring(1);
+      topic.substring(0, 1).toUpperCase() + topic.substring(1);
     return (
       <div>
         <h2>{capitalisedTitle}</h2>
-        <ArticleList articles={articles} />
+        <ArticleList topic={topic} />
       </div>
-    );
-  }
-
-  componentDidMount() {
-    const { uri } = this.props;
-    const splitUri = uri.split("/");
-    const lowercaseTitle = splitUri[splitUri.length - 1];
-    GetRequests(`articles`, `articles?topic=${lowercaseTitle}`).then(articles =>
-      this.setState({ articles })
     );
   }
 }

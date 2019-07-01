@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 
 const NavBar = ({ user }) => {
   return (
-    <nav class="nav-bar">
+    <nav className="nav-bar">
       <div>
         <Link to="/">
           <button className="nav-buttons">Home</button>

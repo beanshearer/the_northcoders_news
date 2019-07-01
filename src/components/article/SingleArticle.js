@@ -3,15 +3,18 @@ import GetRequests from "../../api/Get";
 import Comments from "./Comments";
 import Liker from "../Liker";
 import Profile from "../Profile";
+import ErrorPage from "../../ErrorPage";
 
 class SingleArticle extends Component {
   state = {
     article: {},
-    user: {}
+    user: {},
+    err: null
   };
 
   render() {
-    const { article } = this.state;
+    const { article, err } = this.state;
+    if (err) return <ErrorPage err={err} />;
     const { uri } = this.props;
     return (
       <div className="article">
@@ -32,10 +35,16 @@ class SingleArticle extends Component {
 
   componentDidMount() {
     const { uri } = this.props;
-    GetRequests(`article`, uri).then(article => {
-      this.setState({ article });
-      return article.author;
-    });
+    GetRequests(`article`, uri)
+      .then(article => {
+        this.setState({ article });
+        return article.author;
+      })
+      .catch(err => {
+        this.setState({
+          err
+        });
+      });
   }
 }
 

@@ -13,10 +13,10 @@ class AllAuthors extends Component {
     return (
       <section>
         <h2>Authors</h2>
-        {users.map(user => {
+        {users.map(({ username }) => {
           return (
-            <div className="authors-card flex-container">
-              <Profile author={user.username} />
+            <div key={username} className="authors-card flex-container">
+              <Profile author={username} />
               <label>
                 Articles:
                 <AuthorsArticles />

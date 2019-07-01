@@ -7,7 +7,7 @@ const HomeArticles = ({ articles }) => {
       {articles.map(
         ({ article_id, author, title, created_at, topic, votes }) => {
           return (
-            <div key={article_id} class="home-article-boxes">
+            <div key={article_id} className="home-article-boxes">
               <div>
                 Title:
                 <Link key={article_id} to={`/articles/${article_id}`}>

@@ -9,6 +9,7 @@ import AllAuthors from "./components/authors/AllAuthors";
 import AllArticles from "./components/articles/AllArticles";
 import SingleArticle from "./components/article/SingleArticle";
 import SingleTopic from "./components/topic/SingleTopic";
+import ErrorPage from "./ErrorPage";
 
 class App extends Component {
   state = {
@@ -27,6 +28,7 @@ class App extends Component {
           <AllAuthors path="/authors" />
           <SingleArticle path="/articles/:article_id" />
           <SingleTopic path="/topics/:topic" />
+          <ErrorPage default />
         </Router>
       </div>
     );

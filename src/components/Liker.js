@@ -39,7 +39,7 @@ class Liker extends Component {
     const { change } = this.state;
     return (
       <button onClick={this.handleClick}>
-        Votes:
+        Likes:
         {likes + change}
       </button>
     );

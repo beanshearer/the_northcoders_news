@@ -20,19 +20,21 @@ class Comments extends Component {
 
   handleSubmit = event => {
     const { comment, username } = this.state;
-    const { uri } = this.props;
     event.preventDefault();
-    PostOrPatchRequests("post", `comment`, `${uri}/comments`, {
-      username,
-      body: comment
-    }).then(({ article_id, ...newComment }) => {
-      this.setState(state => {
-        return {
-          comments: [...state.comments, newComment],
-          comment: ""
-        };
+    if (comment) {
+      const { uri } = this.props;
+      PostOrPatchRequests("post", `comment`, `${uri}/comments`, {
+        username,
+        body: comment
+      }).then(({ article_id, ...newComment }) => {
+        this.setState(state => {
+          return {
+            comments: [...state.comments, newComment],
+            comment: ""
+          };
+        });
       });
-    });
+    }
   };
 
   handleDelete = comment_id => {
