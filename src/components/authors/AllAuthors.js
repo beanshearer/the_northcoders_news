@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import GetRequests from "../api/Get";
-import Profile from "./Profile";
+import GetRequests from "../../api/Get";
+import Profile from "../Profile";
 import AuthorsArticles from "./AuthorsArticles";
 
 class AllAuthors extends Component {

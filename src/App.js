@@ -3,12 +3,12 @@ import "./App.css";
 import MainHeader from "./components/MainHeader";
 import NavBar from "./components/NavBar";
 import { Router } from "@reach/router";
-import Home from "./components/Home";
-import AllTopics from "./components/AllTopics";
-import AllAuthors from "./components/AllAuthors";
-import AllArticles from "./components/AllArticles";
-import SingleArticle from "./components/SingleArticle";
-import SingleTopic from "./components/SingleTopic";
+import Home from "./components/home/Home";
+import AllTopics from "./components/topics/AllTopics";
+import AllAuthors from "./components/authors/AllAuthors";
+import AllArticles from "./components/articles/AllArticles";
+import SingleArticle from "./components/article/SingleArticle";
+import SingleTopic from "./components/topic/SingleTopic";
 
 class App extends Component {
   state = {

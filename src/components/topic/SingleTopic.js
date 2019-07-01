@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import ArticleList from "./ArticleList";
-import GetRequests from "../api/Get";
+import ArticleList from "../articles/ArticleList";
+import GetRequests from "../../api/Get";
 
 class SingleTopic extends Component {
   state = {
     articles: []
   };
+
   render() {
     const { articles } = this.state;
     const { uri } = this.props;

@@ -8,8 +8,6 @@ const ArticleList = ({ articles }) => {
         <div className="c1">Author</div>
         <div className="c2">Title</div>
         <div className="c3">Date</div>
-        <div className="c4">Topic</div>
-        <div className="c5">Likes</div>
       </div>
       {articles.map(
         ({ article_id, author, title, created_at, topic, votes }) => {
@@ -24,8 +22,6 @@ const ArticleList = ({ articles }) => {
               <div className="c3">
                 {created_at.substring(0, 10).replace(/-/g, "/")}
               </div>
-              <div className="c4">{topic}</div>
-              <div className="c5">{votes}</div>
             </div>
           );
         }

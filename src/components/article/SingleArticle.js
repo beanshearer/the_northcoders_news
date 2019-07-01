@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import GetRequests from "../api/Get";
+import GetRequests from "../../api/Get";
 import Comments from "./Comments";
-import Liker from "./Liker";
-import Profile from "./Profile";
+import Liker from "../Liker";
+import Profile from "../Profile";
 
 class SingleArticle extends Component {
   state = {
@@ -14,15 +14,17 @@ class SingleArticle extends Component {
     const { article } = this.state;
     const { uri } = this.props;
     return (
-      <div>
+      <div className="article">
         <div className="author-and-title">
           <Profile author={article.author} />
           <header className="article-title">
             <h2>{article && article.title}</h2>
           </header>
         </div>
-        <div className="article-body">{article && article.body}</div>
-        <Liker article_id={article.article_id} likes={article.votes} />
+        <div className="article-body">
+          {article && article.body}
+          <Liker article_id={article.article_id} likes={article.votes} />
+        </div>
         <Comments uri={uri} />
       </div>
     );

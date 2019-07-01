@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArticleList from "./ArticleList";
-import GetRequests from "../api/Get";
+import GetRequests from "../../api/Get";
 
 class AllArticles extends Component {
   state = {
@@ -30,11 +30,13 @@ class AllArticles extends Component {
   render() {
     const { articles } = this.state;
     return (
-      <div className="container">
-        <h2>All Articles</h2>
-        Sort By:
-        <form onSubmit={this.handleSubmit}>
+      <div className="all-articles">
+        <header className="secondary-title">
+          <h2>All Articles</h2>
+        </header>
+        <form className="sort-by" onSubmit={this.handleSubmit}>
           <label>
+            Sort By:
             <select
               className="select-dropdown"
               value={this.state.value}
@@ -46,7 +48,7 @@ class AllArticles extends Component {
               <option value="votes">Votes</option>
               <option value="title">Title</option>
             </select>
-          </label>
+          </label>{" "}
           <label>
             Order:
             <select

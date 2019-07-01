@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../api/Get";
+import GetRequests from "../../api/Get";
 import HomeArticles from "./HomeArticles";
 
 class Home extends Component {
@@ -9,7 +9,7 @@ class Home extends Component {
   render() {
     const { articles } = this.state;
     return (
-      <div>
+      <div className="home">
         <h2>Home</h2>
         <HomeArticles articles={articles} />
       </div>

@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 
 const HomeArticles = ({ articles }) => {
   return (
-    <div class="flex-container">
+    <div className="flex-container">
       {articles.map(
         ({ article_id, author, title, created_at, topic, votes }) => {
           return (

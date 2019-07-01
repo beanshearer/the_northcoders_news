@@ -24,7 +24,7 @@ const NavBar = ({ user }) => {
           <button className="nav-buttons">Authors</button>
         </Link>
       </div>
-      <div>Logged in as: {user}</div>
+      <div>Logged in: {user}</div>
     </nav>
   );
 };

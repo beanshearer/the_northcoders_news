@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../api/Get";
+import GetRequests from "../../api/Get";
 
 class AuthorsArticles extends Component {
   state = {

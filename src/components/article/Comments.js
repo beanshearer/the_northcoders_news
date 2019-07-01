@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import GetRequests from "../api/Get";
-import PostOrPatchRequests from "../api/PostOrPatch";
-import Delete from "../api/Delete";
-import Liker from "./Liker";
+import GetRequests from "../../api/Get";
+import PostOrPatchRequests from "../../api/PostOrPatch";
+import Delete from "../../api/Delete";
+import Liker from "../Liker";
 
 class Comments extends Component {
   state = {
