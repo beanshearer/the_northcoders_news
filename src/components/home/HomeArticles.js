@@ -2,14 +2,34 @@ import React from "react";
 import { Link } from "@reach/router";
 import DayMonthYear from "../DayMonthYear";
 import AuthorName from "../AuthorName";
+import styled from "styled-components";
+
+const HomeArticleBoxes = styled.div`
+  display: grid;
+  grid-template-columns: 30% 70%;
+  text-align: left;
+  width: 550px;
+  padding: 25px;
+  background-color: #ebf3f9;
+  margin: 10px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+`;
+
+const HomePage = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+`;
 
 const HomeArticles = ({ articles }) => {
   return (
-    <div className="flex-container">
+    <HomePage>
       {articles.map(
         ({ article_id, author, title, created_at, topic, votes }) => {
           return (
-            <div key={article_id} className="home-article-boxes">
+            <HomeArticleBoxes key={article_id}>
               <div>Title</div>
               <div>
                 <Link key={article_id} to={`/articles/${article_id}`}>
@@ -24,11 +44,11 @@ const HomeArticles = ({ articles }) => {
               <div> {topic}</div>
               <div>Likes</div>
               <div> {votes}</div>
-            </div>
+            </HomeArticleBoxes>
           );
         }
       )}
-    </div>
+    </HomePage>
   );
 };
 

@@ -3,6 +3,12 @@ import GetRequests from "../../api/Get";
 import PostOrPatchRequests from "../../api/PostOrPatch";
 import Delete from "../../api/Delete";
 import CommentList from "./CommentList";
+import styled from "styled-components";
+
+const CommentSection = styled.div`
+  padding-right: 15%;
+  padding-left: 15%;
+`;
 
 class Comments extends Component {
   state = {
@@ -50,7 +56,7 @@ class Comments extends Component {
   render() {
     const { comments } = this.state;
     return (
-      <section className="comments">
+      <CommentSection>
         <CommentList
           comments={comments}
           handleDelete={this.handleDelete}
@@ -68,7 +74,7 @@ class Comments extends Component {
           </label>
           <button>Post</button>
         </form>
-      </section>
+      </CommentSection>
     );
   }
 

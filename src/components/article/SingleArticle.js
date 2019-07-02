@@ -3,7 +3,7 @@ import GetRequests from "../../api/Get";
 import Comments from "./Comments";
 import Liker from "../Liker";
 import Profile from "../Profile";
-import ErrorPage from "../../ErrorPage";
+import ErrorPage from "../ErrorPage";
 import DayMonthYear from "../DayMonthYear";
 import styled from "styled-components";
 

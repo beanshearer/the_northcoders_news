@@ -1,5 +1,19 @@
 import React, { Component } from "react";
 import ArticleList from "../ArticleList";
+import styled from "styled-components";
+
+const Articles = styled.div`
+  background-color: white;
+  margin: 1%;
+`;
+
+const SecondaryTitle = styled.div`
+  padding: 5%;
+`;
+
+const SelectDropDown = styled.select`
+  background-color: white;
+`;
 
 class AllArticles extends Component {
   state = {
@@ -29,15 +43,14 @@ class AllArticles extends Component {
   render() {
     const { sort_submit, order_submit, p } = this.state;
     return (
-      <div className="all-articles">
-        <header className="secondary-title">
+      <Articles>
+        <SecondaryTitle>
           <h2>All Articles</h2>
-        </header>
-        <form className="sort-by" onSubmit={this.handleSubmit}>
+        </SecondaryTitle>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Sort By:
-            <select
-              className="select-dropdown"
+            <SelectDropDown
               value={this.state.value}
               onChange={this.handleChange}
             >
@@ -46,18 +59,17 @@ class AllArticles extends Component {
               <option value="author">Author</option>
               <option value="votes">Likes</option>
               <option value="title">Title</option>
-            </select>
+            </SelectDropDown>
           </label>{" "}
           <label>
             Order:
-            <select
-              className="select-dropdown"
+            <SelectDropDown
               value={this.state.order}
               onChange={this.handleOrderChange}
             >
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
-            </select>
+            </SelectDropDown>
           </label>
           <button>Apply</button>
         </form>
@@ -66,7 +78,7 @@ class AllArticles extends Component {
           order_submit={order_submit}
           p={p}
         />
-      </div>
+      </Articles>
     );
   }
 }

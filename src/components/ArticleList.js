@@ -1,9 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import GetRequests from "../api/Get";
-import ErrorPage from "../ErrorPage";
+import ErrorPage from "./ErrorPage";
 import DayMonthYear from "./DayMonthYear";
 import AuthorName from "./AuthorName";
+import styled from "styled-components";
+
+const List = styled.div`
+  margin: 1%;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+
+  :nth-child(even) {
+    background: #f0f8ff;
+  }
+`;
+
+const Row = styled.div`
+  min-height: 60px;
+`;
 
 class ArticleList extends Component {
   state = {
@@ -13,17 +31,17 @@ class ArticleList extends Component {
     sort_by: "created_at"
   };
 
-  nextPage = () => {
+  NextPage = () => {
     let { p } = this.state;
     this.setState({ p: p + 10 });
   };
 
-  prevPage = () => {
+  PrevPage = () => {
     let { p } = this.state;
     this.setState({ p: p - 10 });
   };
 
-  correctName = name => {
+  CorrectName = name => {
     const names = {
       created_at: "Date",
       topic: "Topic",
@@ -44,30 +62,28 @@ class ArticleList extends Component {
     }
     if (err) return <ErrorPage err={err} />;
     return (
-      <div className="article-list">
+      <List>
         {topic && <h2>{capitalisedTitle}</h2>}
-        <div className="grid-container">
-          <div className="c1">Author</div>
-          <div className="c2">Title</div>
-          <div className="c3">
-            {articles ? this.correctName(sort_by) : "Date"}
-          </div>
-        </div>
+        <GridContainer>
+          <Row>Author</Row>
+          <Row>Title</Row>
+          <Row>{articles ? this.CorrectName(sort_by) : "Date"}</Row>
+        </GridContainer>
         {articles.map(article => {
           return (
-            <div className="grid-container" key={article.article_id}>
-              <div className="c1">
+            <GridContainer key={article.article_id}>
+              <Row>
                 <AuthorName username={article.author} />
-              </div>
-              <div className="c2">
+              </Row>
+              <Row>
                 <Link
                   key={article.article_id}
                   to={`/articles/${article.article_id}`}
                 >
                   {article.title}
                 </Link>
-              </div>
-              <div className="c3">
+              </Row>
+              <Row>
                 {sort_by === "author" || sort_by === "title" ? (
                   article.votes
                 ) : sort_by === "created_at" ? (
@@ -75,17 +91,17 @@ class ArticleList extends Component {
                 ) : (
                   article[sort_by]
                 )}
-              </div>
-            </div>
+              </Row>
+            </GridContainer>
           );
         })}
         <div>
-          {p > 0 && <button onClick={this.prevPage}>Previous Page</button>}
+          {p > 0 && <button onClick={this.PrevPage}>Previous Page</button>}
           {articles.length >= 10 && (
-            <button onClick={this.nextPage}>Next Page</button>
+            <button onClick={this.NextPage}>Next Page</button>
           )}
         </div>
-      </div>
+      </List>
     );
   }
   componentDidMount() {
@@ -95,18 +111,14 @@ class ArticleList extends Component {
         .then(articles => this.setState({ articles }))
         .catch(err => {
           console.log(err);
-          this.setState({
-            err
-          });
+          this.setState({ err });
         });
     } else
       GetRequests(`articles`, `articles?sort_by=created_at&order=desc`)
         .then(articles => this.setState({ articles }))
         .catch(err => {
           console.log(err);
-          this.setState({
-            err
-          });
+          this.setState({ err });
         });
   }
 
@@ -125,10 +137,7 @@ class ArticleList extends Component {
       )
         .then(articles => this.setState({ articles }))
         .catch(err => {
-          console.log(err);
-          this.setState({
-            err
-          });
+          this.setState({ err });
         });
     }
   }

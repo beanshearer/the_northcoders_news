@@ -2,11 +2,22 @@ import React, { Component } from "react";
 import GetRequests from "../../api/Get";
 import Profile from "../Profile";
 import AuthorsArticles from "./AuthorsArticles";
+import styled from "styled-components";
+
+const Author = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background: lightblue;
+  margin: 20px;
+  padding: 10px;
+`;
 
 class AllAuthors extends Component {
   state = {
     users: []
   };
+
   render() {
     const { users } = this.state;
     return (
@@ -14,18 +25,19 @@ class AllAuthors extends Component {
         <h2>Authors</h2>
         {users.map(({ username }) => {
           return (
-            <div key={username} className="authors-card flex-container">
+            <Author key={username}>
               <Profile author={username} />
               <label>
                 Articles:
                 <AuthorsArticles />
               </label>
-            </div>
+            </Author>
           );
         })}
       </section>
     );
   }
+
   componentDidMount() {
     GetRequests(`users`).then(users => this.setState({ users }));
   }

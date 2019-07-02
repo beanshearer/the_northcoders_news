@@ -9,12 +9,13 @@ import AllAuthors from "./components/authors/AllAuthors";
 import AllArticles from "./components/articles/AllArticles";
 import SingleArticle from "./components/article/SingleArticle";
 import SingleTopic from "./components/topic/SingleTopic";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./components/ErrorPage";
 
 class App extends Component {
   state = {
     user: "jessjelly"
   };
+
   render() {
     const { user } = this.state;
     return (

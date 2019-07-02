@@ -3,7 +3,7 @@ import PostOrPatchRequests from "../api/PostOrPatch";
 import thumb from "./thumb-up.png";
 import styled from "styled-components";
 
-const Thing = styled.button`
+const LikeButton = styled.button`
   color: black;
 
   :hover {
@@ -48,11 +48,11 @@ class Liker extends Component {
     const { likes } = this.props;
     const { change } = this.state;
     return (
-      <Thing onClick={this.handleClick}>
+      <LikeButton onClick={this.handleClick}>
         <img src={thumb} alt="thumb" width="10px" />
         Likes:
         {likes + change}
-      </Thing>
+      </LikeButton>
     );
   }
 }
