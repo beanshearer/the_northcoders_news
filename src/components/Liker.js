@@ -1,5 +1,15 @@
 import React, { Component } from "react";
 import PostOrPatchRequests from "../api/PostOrPatch";
+import thumb from "./thumb-up.png";
+import styled from "styled-components";
+
+const Thing = styled.button`
+  color: black;
+
+  :hover {
+    color: red;
+  }
+`;
 
 class Liker extends Component {
   state = {
@@ -38,10 +48,11 @@ class Liker extends Component {
     const { likes } = this.props;
     const { change } = this.state;
     return (
-      <button onClick={this.handleClick}>
+      <Thing onClick={this.handleClick}>
+        <img src={thumb} alt="thumb" width="10px" />
         Likes:
         {likes + change}
-      </button>
+      </Thing>
     );
   }
 }

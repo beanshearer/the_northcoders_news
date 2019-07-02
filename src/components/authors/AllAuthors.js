@@ -5,8 +5,7 @@ import AuthorsArticles from "./AuthorsArticles";
 
 class AllAuthors extends Component {
   state = {
-    users: [],
-    articles: []
+    users: []
   };
   render() {
     const { users } = this.state;

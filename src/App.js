@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import MainHeader from "./components/MainHeader";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import { Router } from "@reach/router";
 import Home from "./components/home/Home";
 import AllTopics from "./components/topics/AllTopics";

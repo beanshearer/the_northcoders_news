@@ -26,16 +26,6 @@ class AllArticles extends Component {
     event.preventDefault();
   };
 
-  nextPage = () => {
-    let { p } = this.state;
-    this.setState({ p: p + 10 });
-  };
-
-  prevPage = () => {
-    let { p } = this.state;
-    this.setState({ p: p - 10 });
-  };
-
   render() {
     const { sort_submit, order_submit, p } = this.state;
     return (
@@ -54,7 +44,7 @@ class AllArticles extends Component {
               <option value="created_at">Date</option>
               <option value="topic">Topic</option>
               <option value="author">Author</option>
-              <option value="votes">Votes</option>
+              <option value="votes">Likes</option>
               <option value="title">Title</option>
             </select>
           </label>{" "}
@@ -76,10 +66,6 @@ class AllArticles extends Component {
           order_submit={order_submit}
           p={p}
         />
-        <div>
-          <button onClick={this.prevPage}>Previous Page</button>
-          <button onClick={this.nextPage}>Next Page</button>
-        </div>
       </div>
     );
   }

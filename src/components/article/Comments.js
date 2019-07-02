@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import GetRequests from "../../api/Get";
 import PostOrPatchRequests from "../../api/PostOrPatch";
 import Delete from "../../api/Delete";
-import Liker from "../Liker";
+import CommentList from "./CommentList";
 
 class Comments extends Component {
   state = {
@@ -51,25 +51,11 @@ class Comments extends Component {
     const { comments } = this.state;
     return (
       <section className="comments">
-        <div>
-          {comments.map(({ comment_id, body, votes, author }) => {
-            return (
-              <div className="commentCard" key={comment_id}>
-                {author + " " + body}
-                <Liker comment_id={comment_id} likes={votes} />
-                {author === this.state.username && (
-                  <button
-                    onClick={() => {
-                      this.handleDelete(comment_id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                )}
-              </div>
-            );
-          })}
-        </div>
+        <CommentList
+          comments={comments}
+          handleDelete={this.handleDelete}
+          username={this.state.username}
+        />
         <form onSubmit={this.handleSubmit}>
           <label>
             Comment:

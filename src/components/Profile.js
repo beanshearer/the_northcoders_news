@@ -1,5 +1,21 @@
 import React, { Component } from "react";
 import GetRequests from "../api/Get";
+import styled from "styled-components";
+
+const ProfileCard = styled.div`
+  text-align: center;
+  width: 25%;
+  min-width: 80px;
+  max-width: 150px;
+  border-style: solid;
+  border-color: #f0f8ff;
+  border-radius: 2%;
+  padding: 1%;
+`;
+
+const ProfilePicture = styled.img`
+  width: 100%;
+`;
 
 class Profile extends Component {
   state = {
@@ -9,14 +25,10 @@ class Profile extends Component {
   render() {
     const { user } = this.state;
     return (
-      <div className="profile">
-        <img
-          className="profile-picture"
-          src={user.avatar_url}
-          alt={`${user.name}`}
-        />
+      <ProfileCard>
+        <ProfilePicture src={user.avatar_url} alt={`${user.name}`} />
         <div>Author: {user && user.name}</div>
-      </div>
+      </ProfileCard>
     );
   }
 
