@@ -4,13 +4,22 @@ import Profile from "../Profile";
 import AuthorsArticles from "./AuthorsArticles";
 import styled from "styled-components";
 
+const AuthorsPage = styled.section`
+  background-color: white;
+  padding: 1%;
+  margin: 3%;
+`;
+
 const Author = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background: lightblue;
-  margin: 20px;
-  padding: 10px;
+  padding: 25px;
+  background-color: #ebf3f9;
+  margin: 10px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 `;
 
 class AllAuthors extends Component {
@@ -21,7 +30,7 @@ class AllAuthors extends Component {
   render() {
     const { users } = this.state;
     return (
-      <section>
+      <AuthorsPage>
         <h2>Authors</h2>
         {users.map(({ username }) => {
           return (
@@ -34,7 +43,7 @@ class AllAuthors extends Component {
             </Author>
           );
         })}
-      </section>
+      </AuthorsPage>
     );
   }
 

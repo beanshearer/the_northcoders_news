@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import GetRequests from "../api/Get";
 import styled from "styled-components";
+import greyman from "../pictures/grey-man.png";
 
 const SmallPicture = styled.img`
   width: 24px;
   height: 24px;
   border-radius: 14px;
   border: solid;
-  border-color: #3b6c91;
+  border-color: #353b45;
   border-width: 1px;
 `;
 
@@ -22,6 +23,7 @@ const Profile = styled.div`
   border-color: #353b45;
   border-width: 0;
   border-left-width: 3px;
+  width: 100px;
 `;
 
 const ProfileText = styled.div`
@@ -31,14 +33,18 @@ const ProfileText = styled.div`
 
 class SmallProfile extends Component {
   state = {
-    user: {}
+    user: {},
+    loading: true
   };
 
   render() {
-    const { user } = this.state;
+    const { user, loading } = this.state;
     return (
       <Profile>
-        <SmallPicture src={user.avatar_url} alt={`${user.name}`} />
+        <SmallPicture
+          src={loading ? greyman : user.avatar_url}
+          alt={`${user.name}`}
+        />
         <ProfileText>{user && user.name}</ProfileText>
       </Profile>
     );
@@ -48,7 +54,7 @@ class SmallProfile extends Component {
     const { author } = this.props;
     if (author) {
       GetRequests(`user`, `users/${author}`).then(user => {
-        this.setState({ user });
+        this.setState({ user, loading: false });
       });
     }
   }

@@ -32,7 +32,11 @@ const HomeArticles = ({ articles }) => {
             <HomeArticleBoxes key={article_id}>
               <div>Title</div>
               <div>
-                <Link key={article_id} to={`/articles/${article_id}`}>
+                <Link
+                  className="remove-underlining"
+                  key={article_id}
+                  to={`/articles/${article_id}`}
+                >
                   {title}
                 </Link>
               </div>

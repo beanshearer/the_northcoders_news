@@ -13,7 +13,12 @@ class AuthorsArticles extends Component {
         {articles.map(({ title, article_id }) => {
           return (
             <div key={article_id}>
-              <Link to={`/articles/${article_id}`}>{title}</Link>
+              <Link
+                className="remove-underlining"
+                to={`/articles/${article_id}`}
+              >
+                {title}
+              </Link>
             </div>
           );
         })}

@@ -6,8 +6,11 @@ import CommentList from "./CommentList";
 import styled from "styled-components";
 
 const CommentSection = styled.div`
-  padding-right: 15%;
-  padding-left: 15%;
+  padding: 0;
+  padding-top: 1px;
+  margin: 5%;
+  margin-top: 0;
+  background: #353b45;
 `;
 
 class Comments extends Component {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import GetRequests from "../../api/Get";
 import HomeArticles from "./HomeArticles";
 import styled from "styled-components";
+import Loading from "../../pictures/loading.gif";
 
 const HomePage = styled.div`
   background-color: white;
@@ -9,14 +10,23 @@ const HomePage = styled.div`
   margin: 3%;
 `;
 
+const LoadingImg = styled.img`
+  width: 20%;
+  margin: 40%;
+  margin-top: 5%;
+`;
+
 class Home extends Component {
   state = {
-    articles: []
+    articles: [],
+    loading: true
   };
 
   render() {
-    const { articles } = this.state;
-    return (
+    const { articles, loading } = this.state;
+    return loading ? (
+      <LoadingImg src={Loading} alt="loading" />
+    ) : (
       <HomePage>
         <h2>Home</h2>
         <HomeArticles articles={articles} />
@@ -25,7 +35,9 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    GetRequests(`articles`).then(articles => this.setState({ articles }));
+    GetRequests(`articles`).then(articles =>
+      this.setState({ articles, loading: false })
+    );
   }
 }
 

@@ -18,6 +18,7 @@ class App extends Component {
 
   render() {
     const { user } = this.state;
+    const { uri } = this.props;
     return (
       <div className="App">
         <MainHeader />
@@ -28,7 +29,7 @@ class App extends Component {
           <AllTopics path="/topics" />
           <AllAuthors path="/authors" />
           <SingleArticle path="/articles/:article_id" />
-          <SingleTopic path="/topics/:topic" />
+          <SingleTopic path="/topics/:topic" uri={uri} />
           <ErrorPage default />
         </Router>
       </div>

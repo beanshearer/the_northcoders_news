@@ -8,7 +8,7 @@ const ProfileCard = styled.div`
   min-width: 80px;
   max-width: 150px;
   border-style: solid;
-  border-color: #f0f8ff;
+  border-color: #353b45;
   border-radius: 2%;
   padding: 1%;
 `;

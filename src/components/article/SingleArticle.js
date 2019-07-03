@@ -11,27 +11,25 @@ const Article = styled.div`
   background-color: white;
   margin: 5%;
   margin-top: 2.5%;
-  padding: 5%;
-  padding-top: 1%;
+  padding: 1%;
   text-align: left;
-  border: solid;
-  border-color: #ddc4c4;
-  border-width: 1px;
 `;
 
 const ArticleBody = styled.div`
   padding: 5%;
-  background-color: aliceblue;
+  background-color: #ebf3f9;
   margin-right: 5%;
   margin-left: 5%;
   text-align: left;
+
   border: solid;
-  border-color: #d0d0d0;
-  border-width: 1px;
+  border-width: 0;
+  border-top-width: 5px;
+  border-color: #353b45;
 `;
 
 const AuthorAndTitle = styled.div`
-  margin: 30px;
+  margin: 5%;
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
@@ -40,6 +38,7 @@ const AuthorAndTitle = styled.div`
 const ArticleTitle = styled.div`
   padding: 5%;
   text-align: left;
+  max-width: 750px;
 `;
 
 class SingleArticle extends Component {

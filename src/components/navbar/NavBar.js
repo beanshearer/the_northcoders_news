@@ -5,7 +5,7 @@ import SmallProfile from "../SmallProfile";
 
 const Pages = styled.div`
   text-decoration: bold;
-  color: #788496;
+  color: #aeb4bd;
   height: 30px;
   padding-top: 15px;
 
@@ -15,7 +15,7 @@ const Pages = styled.div`
 `;
 
 const Bar = styled.div`
-  color: #788496;
+  color: #aeb4bd;
   display: flex;
   justify-content: space-evenly;
   width: calc(100% -2px);

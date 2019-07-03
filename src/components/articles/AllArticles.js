@@ -4,11 +4,8 @@ import styled from "styled-components";
 
 const Articles = styled.div`
   background-color: white;
-  margin: 1%;
-`;
-
-const SecondaryTitle = styled.div`
-  padding: 5%;
+  padding: 1%;
+  margin: 3%;
 `;
 
 const SelectDropDown = styled.select`
@@ -44,9 +41,7 @@ class AllArticles extends Component {
     const { sort_submit, order_submit, p } = this.state;
     return (
       <Articles>
-        <SecondaryTitle>
-          <h2>All Articles</h2>
-        </SecondaryTitle>
+        <h2>All Articles</h2>
         <form onSubmit={this.handleSubmit}>
           <label>
             Sort By:

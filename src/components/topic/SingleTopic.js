@@ -1,17 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import ArticleList from "../ArticleList";
+import styled from "styled-components";
 
-class SingleTopic extends Component {
-  render() {
-    const { uri } = this.props;
-    const splitUri = uri.split("/");
-    const topic = splitUri[splitUri.length - 1];
-    return (
-      <div>
-        <ArticleList topic={topic} />
-      </div>
-    );
-  }
-}
+const TopicPage = styled.section`
+  background-color: white;
+  padding: 1%;
+  margin: 3%;
+`;
+
+const SingleTopic = ({ uri }) => {
+  const splitUri = uri.split("/");
+  const topic = splitUri[splitUri.length - 1];
+  return (
+    <TopicPage>
+      <ArticleList topic={topic} />
+    </TopicPage>
+  );
+};
 
 export default SingleTopic;

@@ -13,4 +13,9 @@ body {
 
 .remove-underlining {
   text-decoration: none;
+  color: darkblue;
+}
+
+.remove-underlining:hover {
+  color: red;
 }

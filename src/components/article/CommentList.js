@@ -7,16 +7,18 @@ const CommentCard = styled.div`
   display: flex;
   justify-content: right;
   flex-wrap: wrap;
-  background-color: aliceblue;
+  background-color: #ebf3f9;
   margin: 5px;
   padding: 5px;
-  border: solid;
-  border-color: #d0d0d0;
-  border-width: 1px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 `;
 
 const BodyAndLikes = styled.div`
-  max-width: 600px;
+  max-width: calc(100% - 150px);
+  min-width: 220px;
+  padding: 1%;
 `;
 
 const CommentList = ({ comments, handleDelete, username }) => {
