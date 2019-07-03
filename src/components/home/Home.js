@@ -11,8 +11,8 @@ const HomePage = styled.div`
 `;
 
 const LoadingImg = styled.img`
-  width: 20%;
-  margin: 40%;
+  width: 10%;
+  margin: 45%;
   margin-top: 5%;
 `;
 
@@ -27,11 +27,11 @@ class Home extends Component {
     return loading ? (
       <LoadingImg src={Loading} alt="loading" />
     ) : (
-      <HomePage>
-        <h2>Home</h2>
-        <HomeArticles articles={articles} />
-      </HomePage>
-    );
+        <HomePage>
+          <h2>Home</h2>
+          <HomeArticles articles={articles} />
+        </HomePage>
+      );
   }
 
   componentDidMount() {

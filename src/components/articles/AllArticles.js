@@ -23,6 +23,7 @@ const SortButton = styled.button`
 `;
 
 const SortForms = styled.form`
+margin: 2%;
   display: flex;
 `
 

@@ -12,8 +12,8 @@ const AuthorsPage = styled.section`
 `;
 
 const LoadingImg = styled.img`
-  width: 20%;
-  margin: 40%;
+  width: 10%;
+  margin: 45%;
   margin-top: 5%;
 `;
 

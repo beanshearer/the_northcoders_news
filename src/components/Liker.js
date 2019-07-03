@@ -59,7 +59,7 @@ class Liker extends Component {
     const { change } = this.state;
     return (
       <LikeButton onClick={this.handleClick}>
-        <Thumb src={change ? greythumb : blackthumb} alt="thumb" width="10px" />
+        <Thumb src={change ? greythumb : blackthumb} alt="" width="10px" />
         Likes:
         {likes + change}
       </LikeButton>
