@@ -10,7 +10,44 @@ const CommentSection = styled.div`
   padding-top: 1px;
   margin: 5%;
   margin-top: 0;
-  background: #353b45;
+  background: rgb(9, 10, 10);
+  background: linear-gradient(
+    180deg,
+    rgba(9, 10, 10, 1) 0%,
+    rgba(21, 22, 23, 1) 100%
+  );
+  border-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+`;
+
+const CommentInput = styled.textarea`
+  width: 94%;
+  margin: 2%;
+  margin-bottom: 0;
+  height: 50px;
+  padding: 1%;
+  font-family: "Roboto", sans-serif;
+  border-width: 2px;
+  border-radius: 10px;
+`;
+
+const CommentForm = styled.form`
+  width: 100%
+  margin: 0%;
+`;
+
+const CommentButton = styled.button`
+  width:10%;
+  min-width: 65px;
+  font-family: "Roboto", sans-serif;
+  height: 30px;
+  border-radius: 10px;
+  border-width: 0;
+  margin: 1%;
+  margin-left: 2%;
+  padding:0;
+  background: white
 `;
 
 class Comments extends Component {
@@ -65,18 +102,18 @@ class Comments extends Component {
           handleDelete={this.handleDelete}
           username={this.state.username}
         />
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Comment:
-            <input
+        <CommentForm onSubmit={this.handleSubmit}>
+          <div>
+            <CommentInput
+              cols="40" rows="5"
               type="text"
-              placeholder="Comment here"
+              placeholder="  Comment here"
               value={this.state.comment}
               onChange={this.handleChange}
             />
-          </label>
-          <button>Post</button>
-        </form>
+            <CommentButton>Comment</CommentButton>
+          </div>
+        </CommentForm>
       </CommentSection>
     );
   }

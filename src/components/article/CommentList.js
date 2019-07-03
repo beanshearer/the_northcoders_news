@@ -7,7 +7,7 @@ const CommentCard = styled.div`
   display: flex;
   justify-content: right;
   flex-wrap: wrap;
-  background-color: #ebf3f9;
+  background-color: white;
   margin: 5px;
   padding: 5px;
   border-radius: 10px;

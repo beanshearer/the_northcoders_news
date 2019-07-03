@@ -36,10 +36,7 @@ class AllAuthors extends Component {
           return (
             <Author key={username}>
               <Profile author={username} />
-              <label>
-                Articles:
-                <AuthorsArticles />
-              </label>
+              <AuthorsArticles />
             </Author>
           );
         })}

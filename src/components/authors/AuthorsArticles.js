@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 import GetRequests from "../../api/Get";
 import { Link } from "@reach/router";
+import styled from "styled-components";
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 90% 10%;
+  text-align: left;
+  }
+`;
+
+const Row = styled.div`
+  min-height: 50px;
+  padding: 5px;
+`;
 
 class AuthorsArticles extends Component {
   state = {
@@ -10,16 +23,25 @@ class AuthorsArticles extends Component {
     const { articles } = this.state;
     return (
       <div>
-        {articles.map(({ title, article_id }) => {
+        <GridContainer>
+          <Row>Tiltes</Row>
+          <Row>Likes</Row>
+        </GridContainer>
+        {articles.map(({ votes, title, article_id }) => {
           return (
-            <div key={article_id}>
-              <Link
-                className="remove-underlining"
-                to={`/articles/${article_id}`}
-              >
-                {title}
-              </Link>
-            </div>
+            <GridContainer key={article_id}>
+              <Row>
+                <Link
+                  className="remove-underlining"
+                  to={`/articles/${article_id}`}
+                >
+                  {title}
+                </Link>
+              </Row>
+              <Row>
+                {votes}
+              </Row>
+            </GridContainer>
           );
         })}
       </div>

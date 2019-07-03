@@ -21,10 +21,9 @@ const ArticleBody = styled.div`
   margin-right: 5%;
   margin-left: 5%;
   text-align: left;
-
   border: solid;
   border-width: 0;
-  border-top-width: 5px;
+  border-top-width: 10px;
   border-color: #353b45;
 `;
 
