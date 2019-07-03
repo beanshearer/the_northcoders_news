@@ -12,6 +12,20 @@ const SelectDropDown = styled.select`
   background-color: white;
 `;
 
+const Label = styled.div`
+  margin: 5px;
+  width: 200px;
+  text-align:left;
+`;
+
+const SortButton = styled.button`
+  margin: 5px;
+`;
+
+const SortForms = styled.form`
+  display: flex;
+`
+
 class AllArticles extends Component {
   state = {
     sort_by: "created_at",
@@ -42,9 +56,9 @@ class AllArticles extends Component {
     return (
       <Articles>
         <h2>All Articles</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Sort By:
+        <SortForms onSubmit={this.handleSubmit}>
+          <Label>
+            Sort By:{" "}
             <SelectDropDown
               value={this.state.value}
               onChange={this.handleChange}
@@ -54,10 +68,10 @@ class AllArticles extends Component {
               <option value="author">Author</option>
               <option value="votes">Likes</option>
               <option value="title">Title</option>
-            </SelectDropDown>
-          </label>{" "}
-          <label>
-            Order:
+            </SelectDropDown>{"   "}
+          </Label>
+          <Label>
+            Order:{" "}
             <SelectDropDown
               value={this.state.order}
               onChange={this.handleOrderChange}
@@ -65,9 +79,9 @@ class AllArticles extends Component {
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
             </SelectDropDown>
-          </label>
-          <button>Apply</button>
-        </form>
+          </Label>
+          <SortButton>Apply</SortButton>
+        </SortForms>
         <ArticleList
           sort_submit={sort_submit}
           order_submit={order_submit}

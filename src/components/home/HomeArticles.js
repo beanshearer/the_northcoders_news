@@ -45,7 +45,7 @@ const HomeArticles = ({ articles }) => {
               <div>Date</div>
               <DayMonthYear date={created_at} />
               <div>Topic</div>
-              <div> {topic}</div>
+              <div> {topic.substring(0, 1).toUpperCase() + topic.substring(1)}</div>
               <div>Likes</div>
               <div> {votes}</div>
             </HomeArticleBoxes>

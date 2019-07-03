@@ -6,6 +6,7 @@ import Profile from "../Profile";
 import ErrorPage from "../ErrorPage";
 import DayMonthYear from "../DayMonthYear";
 import styled from "styled-components";
+import Loading from "../../pictures/loading.gif";
 
 const Article = styled.div`
   background-color: white;
@@ -24,7 +25,13 @@ const ArticleBody = styled.div`
   border: solid;
   border-width: 0;
   border-top-width: 10px;
-  border-color: #353b45;
+  border-color: rgba(9, 10, 10, 1);
+`;
+
+const LoadingImg = styled.img`
+  width: 20%;
+  margin: 40%;
+  margin-top: 5%;
 `;
 
 const AuthorAndTitle = styled.div`
@@ -44,36 +51,39 @@ class SingleArticle extends Component {
   state = {
     article: {},
     user: {},
-    err: null
+    err: null,
+    loading: true
   };
 
   render() {
-    const { article, err } = this.state;
+    const { article, err, loading } = this.state;
     if (err) return <ErrorPage err={err} />;
     const { uri } = this.props;
-    return (
-      <Article>
-        <AuthorAndTitle>
-          <Profile author={article.author} />
-          <ArticleTitle>
-            <h2>{article && article.title}</h2>
-            <div>{article && <DayMonthYear date={article.created_at} />}</div>
-          </ArticleTitle>
-        </AuthorAndTitle>
-        <ArticleBody>
-          {article && article.body}
-          <Liker article_id={article.article_id} likes={article.votes} />
-        </ArticleBody>
-        <Comments uri={uri} />
-      </Article>
-    );
+    return loading ? (
+      <LoadingImg src={Loading} alt="loading" />
+    ) : (
+        <Article>
+          <AuthorAndTitle>
+            <Profile author={article.author} />
+            <ArticleTitle>
+              <h2>{article && article.title}</h2>
+              <div>{article && <DayMonthYear date={article.created_at} />}</div>
+            </ArticleTitle>
+          </AuthorAndTitle>
+          <ArticleBody>
+            {article && article.body}
+            <Liker article_id={article.article_id} likes={article.votes} />
+          </ArticleBody>
+          <Comments uri={uri} />
+        </Article>
+      );
   }
 
   componentDidMount() {
     const { uri } = this.props;
     GetRequests(`article`, uri)
       .then(article => {
-        this.setState({ article });
+        this.setState({ article, loading: false });
         return article.author;
       })
       .catch(err => {

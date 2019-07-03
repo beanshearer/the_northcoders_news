@@ -1,15 +1,25 @@
 import React, { Component } from "react";
 import PostOrPatchRequests from "../api/PostOrPatch";
-import thumb from "./thumb-up.png";
+import blackthumb from "../pictures/thumbs-up-black.png";
+import greythumb from "../pictures/thumbs-up-grey.png";
 import styled from "styled-components";
 
-const LikeButton = styled.button`
+const LikeButton = styled.div`
   color: black;
+  background: 0;
+  font-family: "Arial", Sans-serif;
+  font-size: 10px;
+  text-decoration: underline;
 
   :hover {
     color: red;
   }
 `;
+
+const Thumb = styled.img`
+width: 15px;
+padding-right: 5px;
+`
 
 class Liker extends Component {
   state = {
@@ -49,7 +59,7 @@ class Liker extends Component {
     const { change } = this.state;
     return (
       <LikeButton onClick={this.handleClick}>
-        <img src={thumb} alt="thumb" width="10px" />
+        <Thumb src={change ? greythumb : blackthumb} alt="thumb" width="10px" />
         Likes:
         {likes + change}
       </LikeButton>

@@ -21,6 +21,22 @@ const BodyAndLikes = styled.div`
   padding: 1%;
 `;
 
+const LikeAndDelete = styled.div`
+  display: flex;
+`;
+
+const DeleteButton = styled.div`
+  background: 0;
+  font-family: "Arial", Sans-serif;
+  font-size: 10px;
+  text-decoration: underline;
+  padding:5px;
+
+  :hover {
+    color: red;
+  }
+`;
+
 const CommentList = ({ comments, handleDelete, username }) => {
   return (
     <div>
@@ -30,16 +46,17 @@ const CommentList = ({ comments, handleDelete, username }) => {
             <SmallProfile author={author} />
             <BodyAndLikes>
               {body}
-              <Liker comment_id={comment_id} likes={votes} />
-              {author === username && (
-                <button
-                  onClick={() => {
-                    handleDelete(comment_id);
-                  }}
-                >
-                  Delete
-                </button>
-              )}
+              <LikeAndDelete>
+                <Liker comment_id={comment_id} likes={votes} />
+                {author === username && (
+                  <DeleteButton
+                    onClick={() => {
+                      handleDelete(comment_id);
+                    }}>
+                    Delete
+                </DeleteButton>
+                )}
+              </LikeAndDelete>
             </BodyAndLikes>
           </CommentCard>
         );

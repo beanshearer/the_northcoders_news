@@ -5,9 +5,8 @@ import styled from "styled-components";
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: 80% 20%;
   text-align: left;
-  }
 `;
 
 const Row = styled.div`
@@ -48,7 +47,8 @@ class AuthorsArticles extends Component {
     );
   }
   componentDidMount() {
-    GetRequests(`articles`, `articles?author=jessjelly&limit=3`).then(
+    const { author } = this.props
+    GetRequests(`articles`, `articles?author=${author}&limit=3`).then(
       articles => this.setState({ articles })
     );
   }

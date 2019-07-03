@@ -17,6 +17,7 @@ const Profile = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 10px;
+  padding-left: 0px;
   padding-right: 0px;
   font-size: 10px;
   border: solid;
@@ -27,8 +28,7 @@ const Profile = styled.div`
 `;
 
 const ProfileText = styled.div`
-  padding: 5px;
-  padding-top: 0px;
+  padding: 0;
 `;
 
 class SmallProfile extends Component {
