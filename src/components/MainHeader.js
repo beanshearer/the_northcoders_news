@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const MainHeaderSection = styled.header`
-  color: #aeb4bd;
+  color: white;
   text-align: right;
   background: rgb(9, 10, 10);
   background: linear-gradient(
