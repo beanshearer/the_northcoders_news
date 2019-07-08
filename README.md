@@ -4,7 +4,7 @@ Northcoders News is a web application that is designed to hold and display news 
 
 ## Getting Started
 
-The once the project has been git cloned and the prerequisites have been installed, which can be done by either installing the prerequistes seperately or simply installing node and then entering 'npm install', enter npm start into the terminal to start running the system locally. 
+Once the project has been git cloned and the prerequisites have been installed, follow the installation guide to get the project running locally. 
 
 ### Prerequisites
 
