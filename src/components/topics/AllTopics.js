@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import GetRequests from "../../api/Get";
+import getter from "../../api/getter";
 import styled from "styled-components";
 import Loading from "../../pictures/loading.gif";
 
@@ -88,7 +88,7 @@ class AllTopics extends Component {
       );
   }
   componentDidMount() {
-    GetRequests(`topics`).then(topics => {
+    getter(`topics`).then(topics => {
       this.setState({ topics, loading: false });
     });
   }

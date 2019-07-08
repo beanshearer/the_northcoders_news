@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../api/Get";
+import getter from "../api/getter";
 import styled from "styled-components";
 import greyman from "../pictures/grey-man.png";
 
@@ -53,7 +53,7 @@ class SmallProfile extends Component {
   componentDidMount() {
     const { author } = this.props;
     if (author) {
-      GetRequests(`user`, `users/${author}`).then(user => {
+      getter(`user`, `users/${author}`).then(user => {
         this.setState({ user, loading: false });
       });
     }
@@ -63,7 +63,7 @@ class SmallProfile extends Component {
     const { author } = this.props;
     const { user } = this.state;
     if (user.username !== author) {
-      GetRequests(`user`, `users/${author}`).then(user => {
+      getter(`user`, `users/${author}`).then(user => {
         this.setState({ user });
       });
     }

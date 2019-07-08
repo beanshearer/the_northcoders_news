@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PostOrPatchRequests from "../api/PostOrPatch";
+import postOrPatch from "../api/postOrPatch";
 import blackthumb from "../pictures/thumbs-up-black.png";
 import greythumb from "../pictures/thumbs-up-grey.png";
 import styled from "styled-components";
@@ -38,14 +38,14 @@ class Liker extends Component {
       inc_votes = -1;
     }
     if (article_id) {
-      PostOrPatchRequests("patch", "article", `articles/${article_id}`, {
+      postOrPatch("patch", "article", `articles/${article_id}`, {
         inc_votes
       }).catch(() => {
         change = 0;
       });
     }
     if (comment_id) {
-      PostOrPatchRequests("patch", "comments", `comments/${comment_id}`, {
+      postOrPatch("patch", "comments", `comments/${comment_id}`, {
         inc_votes
       }).catch(() => {
         change = 0;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../api/Get";
+import getter from "../api/getter";
 import styled from "styled-components";
 
 const ProfileCard = styled.div`
@@ -35,7 +35,7 @@ class Profile extends Component {
   componentDidMount() {
     const { author } = this.props;
     if (author) {
-      GetRequests(`user`, `users/${author}`).then(user => {
+      getter(`user`, `users/${author}`).then(user => {
         this.setState({ user });
       });
     }
@@ -45,7 +45,7 @@ class Profile extends Component {
     const { author } = this.props;
     const { user } = this.state;
     if (user.username !== author) {
-      GetRequests(`user`, `users/${author}`).then(user => {
+      getter(`user`, `users/${author}`).then(user => {
         this.setState({ user });
       });
     }

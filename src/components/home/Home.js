@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../../api/Get";
+import getter from "../../api/getter";
 import HomeArticles from "./HomeArticles";
 import styled from "styled-components";
 import Loading from "../../pictures/loading.gif";
@@ -35,7 +35,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    GetRequests(`articles`).then(articles =>
+    getter(`articles`).then(articles =>
       this.setState({ articles, loading: false })
     );
   }

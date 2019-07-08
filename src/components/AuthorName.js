@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../api/Get";
+import getter from "../api/getter";
 
 class AuthorName extends Component {
   state = {
@@ -13,7 +13,7 @@ class AuthorName extends Component {
 
   componentDidMount() {
     const { username } = this.props;
-    return GetRequests(`user`, `users/${username}`).then(({ name }) => {
+    return getter(`user`, `users/${username}`).then(({ name }) => {
       this.setState({ name });
     });
   }

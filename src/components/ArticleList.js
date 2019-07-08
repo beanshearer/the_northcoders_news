@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import GetRequests from "../api/Get";
+import getter from "../api/getter";
 import ErrorPage from "./ErrorPage";
 import DayMonthYear from "./DayMonthYear";
 import AuthorName from "./AuthorName";
 import styled from "styled-components";
-import Loading from "../pictures/loading.gif";
+import loadingImg from "../pictures/loading.gif";
 
 const List = styled.div`
   margin: 1%;
@@ -68,7 +68,7 @@ class ArticleList extends Component {
     const { topic } = this.props;
     if (err) return <ErrorPage err={err} />;
     return loading ? (
-      <LoadingImg src={Loading} alt="loading" />
+      <LoadingImg src={loadingImg} alt="loading" />
     ) : (
         <List>
           {topic ? <h2>{topic.substring(0, 1).toUpperCase() + topic.substring(1)}</h2> : <div />}
@@ -125,13 +125,13 @@ class ArticleList extends Component {
   componentDidMount() {
     const { topic } = this.props;
     if (topic) {
-      GetRequests(`articles`, `articles?topic=${topic}&limit=100`)
+      getter(`articles`, `articles?topic=${topic}&limit=100`)
         .then(articles => this.setState({ articles, loading: false }))
         .catch(err => {
           this.setState({ err });
         });
     } else
-      GetRequests(`articles`, `articles?sort_by=created_at&order=desc`)
+      getter(`articles`, `articles?sort_by=created_at&order=desc`)
         .then(articles => this.setState({ articles, loading: false }))
         .catch(err => {
           this.setState({ err });
@@ -147,7 +147,7 @@ class ArticleList extends Component {
       prevState.p !== p
     ) {
       this.setState({ sort_by: sort_submit });
-      GetRequests(
+      getter(
         `articles`,
         `articles?sort_by=${sort_submit}&order=${order_submit}&p=${p}`
       )

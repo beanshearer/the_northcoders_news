@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../../api/Get";
+import getter from "../../api/getter";
 import Comments from "./Comments";
 import Liker from "../Liker";
 import Profile from "../Profile";
@@ -81,7 +81,7 @@ class SingleArticle extends Component {
 
   componentDidMount() {
     const { uri } = this.props;
-    GetRequests(`article`, uri)
+    getter(`article`, uri)
       .then(article => {
         this.setState({ article, loading: false });
         return article.author;

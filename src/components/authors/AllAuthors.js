@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../../api/Get";
+import getter from "../../api/getter";
 import Profile from "../Profile";
 import AuthorsArticles from "./AuthorsArticles";
 import styled from "styled-components";
@@ -59,7 +59,7 @@ class AllAuthors extends Component {
   }
 
   componentDidMount() {
-    GetRequests(`users`).then(users => this.setState({ users, loading: false }));
+    getter(`users`).then(users => this.setState({ users, loading: false }));
   }
 }
 

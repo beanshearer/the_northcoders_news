@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import GetRequests from "../../api/Get";
-import PostOrPatchRequests from "../../api/PostOrPatch";
-import Delete from "../../api/Delete";
+import getter from "../../api/getter";
+import postOrPatch from "../../api/postOrPatch";
+import deleter from "../../api/deleter";
 import CommentList from "./CommentList";
 import styled from "styled-components";
 
@@ -69,7 +69,7 @@ class Comments extends Component {
     event.preventDefault();
     if (comment) {
       const { uri } = this.props;
-      PostOrPatchRequests("post", `comment`, `${uri}/comments`, {
+      postOrPatch("post", `comment`, `${uri}/comments`, {
         username,
         body: comment
       }).then(({ article_id, ...newComment }) => {
@@ -84,7 +84,7 @@ class Comments extends Component {
   };
 
   handleDelete = comment_id => {
-    Delete(`comments/${comment_id}`);
+    deleter(`comments/${comment_id}`);
     this.setState(state => {
       const comments = state.comments.filter(comment => {
         return comment.comment_id !== comment_id;
@@ -120,7 +120,7 @@ class Comments extends Component {
 
   componentDidMount() {
     const { uri } = this.props;
-    GetRequests(`comments`, `${uri}/comments`).then(comments => {
+    getter(`comments`, `${uri}/comments`).then(comments => {
       this.setState({ comments });
     });
   }

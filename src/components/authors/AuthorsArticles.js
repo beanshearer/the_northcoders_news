@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GetRequests from "../../api/Get";
+import getter from "../../api/getter";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 
@@ -48,7 +48,7 @@ class AuthorsArticles extends Component {
   }
   componentDidMount() {
     const { author } = this.props
-    GetRequests(`articles`, `articles?author=${author}&limit=3`).then(
+    getter(`articles`, `articles?author=${author}&limit=3`).then(
       articles => this.setState({ articles })
     );
   }
