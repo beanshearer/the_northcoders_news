@@ -1,6 +1,6 @@
 import React from "react";
-import Liker from "../Liker";
-import SmallProfile from "../SmallProfile";
+import Liker from "../multi-use/Liker";
+import SmallProfile from "../multi-use/SmallProfile";
 import styled from "styled-components";
 
 const CommentCard = styled.div`

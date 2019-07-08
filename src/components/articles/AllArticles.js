@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ArticleList from "../ArticleList";
+import ArticleList from "../multi-use/ArticleList";
 import styled from "styled-components";
 
 const Articles = styled.div`

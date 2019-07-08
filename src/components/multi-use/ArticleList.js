@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import getter from "../api/getter";
-import ErrorPage from "./ErrorPage";
+import getter from "../../api/getter";
+import ErrorPage from "../ErrorPage";
 import DayMonthYear from "./DayMonthYear";
 import AuthorName from "./AuthorName";
 import styled from "styled-components";
-import loadingImg from "../pictures/loading.gif";
+import loadingImg from "../../pictures/loading.gif";
 
 const List = styled.div`
   margin: 1%;

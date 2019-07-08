@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getter from "../api/getter";
+import getter from "../../api/getter";
 import styled from "styled-components";
 
 const ProfileCard = styled.div`

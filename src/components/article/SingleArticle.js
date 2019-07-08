@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import getter from "../../api/getter";
 import Comments from "./Comments";
-import Liker from "../Liker";
-import Profile from "../Profile";
+import Liker from "../multi-use/Liker";
+import Profile from "../multi-use/Profile";
 import ErrorPage from "../ErrorPage";
-import DayMonthYear from "../DayMonthYear";
+import DayMonthYear from "../multi-use/DayMonthYear";
 import styled from "styled-components";
 import Loading from "../../pictures/loading.gif";
 

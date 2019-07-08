@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
-import SmallProfile from "../SmallProfile";
+import SmallProfile from "../multi-use/SmallProfile";
 
 const Pages = styled.div`
   text-decoration: bold;

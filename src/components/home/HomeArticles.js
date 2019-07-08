@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
-import DayMonthYear from "../DayMonthYear";
-import AuthorName from "../AuthorName";
+import DayMonthYear from "../multi-use/DayMonthYear";
+import AuthorName from "../multi-use/AuthorName";
 import styled from "styled-components";
 
 const HomeArticleBoxes = styled.div`

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getter from "../api/getter";
+import getter from "../../api/getter";
 
 class AuthorName extends Component {
   state = {

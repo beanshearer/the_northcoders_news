@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import getter from "../api/getter";
+import getter from "../../api/getter";
 import styled from "styled-components";
-import greyman from "../pictures/grey-man.png";
+import greyman from "../../pictures/grey-man.png";
 
 const SmallPicture = styled.img`
   width: 24px;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import postOrPatch from "../api/postOrPatch";
-import blackthumb from "../pictures/thumbs-up-black.png";
-import greythumb from "../pictures/thumbs-up-grey.png";
+import postOrPatch from "../../api/postOrPatch";
+import blackthumb from "../../pictures/thumbs-up-black.png";
+import greythumb from "../../pictures/thumbs-up-grey.png";
 import styled from "styled-components";
 
 const LikeButton = styled.div`

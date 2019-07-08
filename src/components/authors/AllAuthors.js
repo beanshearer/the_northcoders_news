@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import getter from "../../api/getter";
-import Profile from "../Profile";
+import Profile from "../multi-use/Profile";
 import AuthorsArticles from "./AuthorsArticles";
 import styled from "styled-components";
 import Loading from "../../pictures/loading.gif";
