@@ -28,7 +28,7 @@ class App extends Component {
           <AllArticles path="/articles" />
           <AllTopics path="/topics" />
           <AllAuthors path="/authors" />
-          <SingleArticle path="/articles/:article_id" />
+          <SingleArticle user={user} path="/articles/:article_id" />
           <SingleTopic path="/topics/:topic" uri={uri} />
           <ErrorPage default />
         </Router>

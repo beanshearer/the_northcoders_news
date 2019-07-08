@@ -53,8 +53,7 @@ const CommentButton = styled.button`
 class Comments extends Component {
   state = {
     comments: [],
-    comment: "",
-    username: "jessjelly"
+    comment: ""
   };
 
   handleChange = event => {
@@ -65,12 +64,13 @@ class Comments extends Component {
   };
 
   handleSubmit = event => {
-    const { comment, username } = this.state;
+    const { comment } = this.state;
+    const { user } = this.props
     event.preventDefault();
     if (comment) {
       const { uri } = this.props;
       postOrPatch("post", `comment`, `${uri}/comments`, {
-        username,
+        username: user,
         body: comment
       }).then(({ article_id, ...newComment }) => {
         this.setState(state => {
@@ -95,12 +95,13 @@ class Comments extends Component {
 
   render() {
     const { comments } = this.state;
+    const { user } = this.props
     return (
       <CommentSection>
         <CommentList
           comments={comments}
           handleDelete={this.handleDelete}
-          username={this.state.username}
+          username={user}
         />
         <CommentForm onSubmit={this.handleSubmit}>
           <div>

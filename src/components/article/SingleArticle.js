@@ -50,13 +50,13 @@ const ArticleTitle = styled.div`
 class SingleArticle extends Component {
   state = {
     article: {},
-    user: {},
     err: null,
     loading: true
   };
 
   render() {
     const { article, err, loading } = this.state;
+    const { user } = this.props;
     if (err) return <ErrorPage err={err} />;
     const { uri } = this.props;
     return loading ? (
@@ -74,7 +74,7 @@ class SingleArticle extends Component {
             {article && article.body}
             <Liker article_id={article.article_id} likes={article.votes} />
           </ArticleBody>
-          <Comments uri={uri} />
+          <Comments uri={uri} user={user} />
         </Article>
       );
   }
