@@ -2,9 +2,9 @@
 
 Northcoders News is a web application that is designed to hold and display news articles. It contains six pages. The functionality includes being able to comment on articles and the ability to like both articles and comments. 
 
-Hosted: https://the-northcoders-news.netlify.com/
-Link to hosted API: https://bens-northcoders-news.herokuapp.com/api/
-Link to API git: https://github.com/beanshearer/northcoders_news_api.git
+- Hosted: https://the-northcoders-news.netlify.com/
+- Link to hosted API: https://bens-northcoders-news.herokuapp.com/api/
+- Link to API git: https://github.com/beanshearer/northcoders_news_api.git
 
 ## Getting Started
 
